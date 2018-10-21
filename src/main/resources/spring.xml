@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+ 		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-3.2.xsd
+        http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util-3.2.xsd">
+
+
+    <context:component-scan base-package="ua.epam.spring.hometask"/>
+    <context:property-placeholder location="classpath:auditoriums.properties"/>
+
+    <import resource="strategy.xml"/>
+
+    <bean id="bookingService" class="ua.epam.spring.hometask.service.impl.DefaultBookingService"/>
+    <bean id="ticketDao" class="ua.epam.spring.hometask.dao.impl.TicketDaoInMemory"/>
+    <bean id="userDao" class="ua.epam.spring.hometask.dao.impl.UserDaoInMemory"/>
+    <bean id="userService" class="ua.epam.spring.hometask.service.impl.DefaultUserService"/>
+    <bean id="auditoriumService" class="ua.epam.spring.hometask.service.impl.DefaultAuditoriumService"/>
+    <bean id="eventService" class="ua.epam.spring.hometask.service.impl.DefaultEventService"/>
+
+
+    <bean id="discountService" class="ua.epam.spring.hometask.service.impl.DefaultDiscountService">
+        <property name="strategies">
+            <list>
+                <ref bean="birthdayStrategy"/>
+                <ref bean="ticketNumberStrategy"/>
+            </list>
+        </property>
+    </bean>
+
+    <util:set id="vipSeats">
+        <value>${vipSeat1}</value>
+        <value>${vipSeat2}</value>
+        <value>${vipSeat3}</value>
+    </util:set>
+
+    <util:set id="second.vipSeats">
+        <value>${second.vipSeat1}</value>
+        <value>${second.vipSeat2}</value>
+        <value>${second.vipSeat3}</value>
+    </util:set>
+
+    <bean id="auditorium1" class="ua.epam.spring.hometask.domain.Auditorium">
+        <constructor-arg index="0" value="${first.name}" type="java.lang.String"/>
+        <constructor-arg index="1" value="${first.numberOfSeats}" type="long"/>
+        <constructor-arg index="2" ref="first.vipSeats" type="java.util.Set"/>
+    </bean>
+
+    <bean id="auditorium2" class="ua.epam.spring.hometask.domain.Auditorium">
+        <constructor-arg index="0" value="${second.name}" type="java.lang.String"/>
+        <constructor-arg index="1" value="${second.numberOfSeats}" type="long"/>
+        <constructor-arg index="2" ref="second.vipSeats" type="java.util.Set"/>
+    </bean>
+
+    <util:set id="auditoriumSet">
+        <ref bean="auditorium1"/>
+        <ref bean="auditorium2"/>
+    </util:set>
+
+    <bean id="auditoriumDao" class="ua.epam.spring.hometask.dao.impl.AuditoriumDaoInMemory">
+        <property name="auditoriumSet" ref="auditoriumSet"/>
+    </bean>
+
+    <bean id="localDateTime" class="java.time.LocalDateTime" factory-method="now"/>
+
+    <util:set id="airDates" set-class="java.util.TreeSet">
+        <ref bean="localDateTime"/>
+    </util:set>
+
+    <util:map id="navigableMap" map-class="java.util.TreeMap">
+        <entry key-ref="localDateTime" value-ref="auditorium1"/>
+
+    </util:map>
+
+    <bean id="event1" class="ua.epam.spring.hometask.domain.Event">
+        <constructor-arg index="0" value="New_Year_Party" type="java.lang.String"/>
+        <constructor-arg index="1" ref="airDates"/>
+        <constructor-arg value="99.9" type="double"/>
+        <constructor-arg value="HIGH" type="ua.epam.spring.hometask.domain.EventRating"/>
+        <constructor-arg ref="navigableMap"/>
+    </bean>
+
+    <util:list id="eventList">
+        <ref bean="event1"/>
+    </util:list>
+
+    <bean id="eventDao" class="ua.epam.spring.hometask.dao.impl.EventDaoInMemory">
+        <property name="eventList" ref="eventList"/>
+    </bean>
+
+</beans>
