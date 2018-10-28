@@ -3,16 +3,20 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
  		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context-3.2.xsd
         http://www.springframework.org/schema/util
-        http://www.springframework.org/schema/util/spring-util-3.2.xsd">
+        http://www.springframework.org/schema/util/spring-util-3.2.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
 
 
     <context:component-scan base-package="ua.epam.spring.hometask"/>
     <context:property-placeholder location="classpath:auditoriums.properties"/>
+    <aop:aspectj-autoproxy />
 
     <import resource="strategy.xml"/>
 
@@ -22,7 +26,8 @@
     <bean id="userService" class="ua.epam.spring.hometask.service.impl.DefaultUserService"/>
     <bean id="auditoriumService" class="ua.epam.spring.hometask.service.impl.DefaultAuditoriumService"/>
     <bean id="eventService" class="ua.epam.spring.hometask.service.impl.DefaultEventService"/>
-
+    <bean id="counterAspectDao" class="ua.epam.spring.hometask.dao.impl.CounterAspectDaoImpl"/>
+    <bean id="discountAspectDao" class="ua.epam.spring.hometask.dao.impl.DiscountAspectDaoImpl"/>
 
     <bean id="discountService" class="ua.epam.spring.hometask.service.impl.DefaultDiscountService">
         <property name="strategies">

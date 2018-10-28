@@ -1,6 +1,7 @@
 package ua.epam.spring.hometask.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import ua.epam.spring.hometask.dao.EventDao;
 import ua.epam.spring.hometask.dao.TicketDao;
 import ua.epam.spring.hometask.domain.*;
@@ -16,6 +17,7 @@ import java.util.NavigableMap;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+@Service
 public class DefaultBookingService implements BookingService {
 
     @Autowired
