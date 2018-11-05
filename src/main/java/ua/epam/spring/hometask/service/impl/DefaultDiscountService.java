@@ -19,6 +19,14 @@ public class DefaultDiscountService implements DiscountService {
     public DefaultDiscountService() {
     }
 
+    public List<DiscountStrategy> getStrategies() {
+        return strategies;
+    }
+
+    public void setStrategies(List<DiscountStrategy> strategies) {
+        this.strategies = strategies;
+    }
+
     @Override
     public byte getDiscount(@Nullable User user, @Nonnull Event event, @Nonnull LocalDateTime airDateTime, long numberOfTickets) {
         byte discountMax = 0;

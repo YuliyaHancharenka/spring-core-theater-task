@@ -9,13 +9,13 @@ import java.util.Set;
 
 public class AuditoriumDaoInMemory implements AuditoriumDao {
 
-    private static Set<Auditorium> auditoriumSet = new HashSet<>();
+    private Set<Auditorium> auditoriumSet = new HashSet<>();
 
     public AuditoriumDaoInMemory() {
     }
 
-    public static void setAuditoriumSet(Set<Auditorium> auditoriumSet) {
-        auditoriumSet = auditoriumSet;
+    public void setAuditoriumSet(Set<Auditorium> auditoriumSet) {
+        this.auditoriumSet = auditoriumSet;
     }
 
     @Override

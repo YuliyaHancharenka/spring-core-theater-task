@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath*:spring.xml"})
+@ContextConfiguration(locations = {"classpath*:spring-test.xml"})
 public class EventDaoTest {
 
     private Event event;

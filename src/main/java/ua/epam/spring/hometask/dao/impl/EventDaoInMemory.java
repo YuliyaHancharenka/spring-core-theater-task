@@ -11,17 +11,17 @@ import java.util.List;
 
 public class EventDaoInMemory implements EventDao {
 
-    private static List<Event> eventList = new ArrayList<>();
+    private List<Event> eventList = new ArrayList<>();
 
     public EventDaoInMemory() {
     }
 
-    public static List<Event> getEventList() {
+    public List<Event> getEventList() {
         return eventList;
     }
 
-    public static void setEventList(List<Event> eventList) {
-        eventList = eventList;
+    public void setEventList(List<Event> eventList) {
+        this.eventList = eventList;
     }
 
     @Override

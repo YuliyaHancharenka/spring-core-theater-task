@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 import java.time.Month;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath*:spring.xml"})
+@ContextConfiguration(locations = {"classpath*:spring-test.xml"})
 public class DiscountServiceImplTest {
 
     @Autowired
@@ -45,7 +45,7 @@ public class DiscountServiceImplTest {
 
     @Test
     public void getDiscount() {
-        byte discount = discountService.getDiscount(user1, event, airDateTime, 99);
-        Assert.assertEquals( discount, 4);
+        byte actualDiscount = discountService.getDiscount(user1, event, airDateTime, 99);
+        Assert.assertEquals(4, actualDiscount);
     }
 }

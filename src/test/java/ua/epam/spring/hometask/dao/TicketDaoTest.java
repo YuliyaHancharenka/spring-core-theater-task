@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-@ContextConfiguration(locations = {"classpath*:spring.xml"})
+@ContextConfiguration(locations = {"classpath*:spring-test.xml"})
 public class TicketDaoTest extends AbstractJUnit4SpringContextTests {
 
     private Ticket currentTicket;

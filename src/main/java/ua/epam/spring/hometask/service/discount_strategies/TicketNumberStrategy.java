@@ -7,17 +7,17 @@ import java.time.LocalDateTime;
 
 public class TicketNumberStrategy implements DiscountStrategy {
 
-    private static byte discount;
+    private byte discount;
 
     public TicketNumberStrategy() {
     }
 
-    public static byte getDiscount() {
+    public byte getDiscount() {
         return discount;
     }
 
-    public static void setDiscount(byte discount) {
-        discount = discount;
+    public void setDiscount(byte discount) {
+        this.discount = discount;
     }
 
     @Override

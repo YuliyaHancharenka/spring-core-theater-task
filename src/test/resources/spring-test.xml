@@ -38,10 +38,10 @@
         </property>
     </bean>
 
-    <util:set id="vipSeats">
-        <value>${vipSeat1}</value>
-        <value>${vipSeat2}</value>
-        <value>${vipSeat3}</value>
+    <util:set id="first.vipSeats">
+        <value>${first.vipSeat1}</value>
+        <value>${first.vipSeat2}</value>
+        <value>${first.vipSeat3}</value>
     </util:set>
 
     <util:set id="second.vipSeats">
@@ -72,6 +72,21 @@
     </bean>
 
     <bean id="localDateTime" class="java.time.LocalDateTime" factory-method="now"/>
+
+    <!--<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">-->
+        <!--<constructor-arg ref="dataSource"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" destroy-method="close">-->
+        <!--<constructor-arg ref="dataSource"/>-->
+
+        <!--<property name="driverClassName" value="${jdbc.driverClassName}"/>-->
+        <!--<property name="url" value="${jdbc.url}"/>-->
+        <!--<property name="username" value="${jdbc.username}"/>-->
+        <!--<property name="password" value="${jdbc.password}"/>-->
+
+    <!--</bean>-->
+    <!---->
 
     <util:set id="airDates" set-class="java.util.TreeSet">
         <ref bean="localDateTime"/>

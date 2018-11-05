@@ -12,7 +12,7 @@ import ua.epam.spring.hometask.dao.UserDao;
 import ua.epam.spring.hometask.domain.User;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath*:spring.xml"})
+@ContextConfiguration(locations = {"classpath*:spring-test.xml"})
 public class UserServiceTest {
 
     @Autowired

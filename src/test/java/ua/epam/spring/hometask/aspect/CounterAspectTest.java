@@ -22,7 +22,7 @@ import java.time.LocalDateTime;
 import java.util.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath*:spring.xml"})
+@ContextConfiguration(locations = {"classpath:spring-test.xml"})
 public class CounterAspectTest {
 
     @Autowired
@@ -94,7 +94,6 @@ public class CounterAspectTest {
         bookingService.getTicketsPrice(currentEvent, dateTime, currentUser, seats);
         bookingService.getTicketsPrice(currentEvent, dateTime, currentUser, seats);
         bookingService.getTicketsPrice(currentEvent, dateTime, currentUser, seats);
-
         Long result  = counterAspectDao.eventsByPriceStorageGetAll().get("New_Year_Party") ;
         Assert.assertTrue(result.equals(3L));
     }

@@ -20,9 +20,9 @@ import java.time.LocalDateTime;
 import java.util.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath*:spring.xml"})
+@ContextConfiguration(locations = {"classpath*:spring-test.xml"})
 @TestExecutionListeners()
-public class BookingServiceTest {
+public class BookingServiceTest {//todo
 
     @Autowired
     @Qualifier(value = "eventDao")
@@ -88,7 +88,7 @@ public class BookingServiceTest {
     @Test
     public void getTicketsPriceTest() {
         double price = bookingService.getTicketsPrice(currentEvent, dateTime, currentUser, seats);
-        Assert.assertEquals(price,359.64);
+        Assert.assertEquals(price,479.52);
     }
 
     @Test

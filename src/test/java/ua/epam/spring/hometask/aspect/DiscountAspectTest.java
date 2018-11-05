@@ -20,7 +20,7 @@ import java.time.Month;
 import java.util.Map;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath*:spring.xml"})
+@ContextConfiguration(locations = {"classpath*:spring-test.xml"})
 public class DiscountAspectTest {
 
     @Autowired

@@ -8,6 +8,7 @@ import ua.epam.spring.hometask.service.AuditoriumService;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -30,6 +31,7 @@ public class DefaultAuditoriumService implements AuditoriumService {
     @Nullable
     @Override
     public Auditorium getByName(@Nonnull String name) {
-        return auditoriumDao.getByName(name);
+        Collection<Auditorium> list = auditoriumDao.getAll();
+        return list.stream().filter(e -> e.getName().equals(name)).findFirst().orElse(null);
     }
 }

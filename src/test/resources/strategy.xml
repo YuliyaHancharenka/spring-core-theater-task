@@ -4,13 +4,12 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
  		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
 
-
-    <bean id="birthdayStrategy" class="ua.epam.spring.hometask.strategy.BirthdayStrategy" primary="true">
+    <bean id="birthdayStrategy" class="ua.epam.spring.hometask.service.discount_strategies.BirthdayStrategy" primary="true">
         <property name="discount" value="5"/>
         <property name="airDays" value="5"/>
     </bean>
 
-    <bean id="TicketNumberStrategy" class="ua.epam.spring.hometask.strategy.TicketNumberStrategy" >
+    <bean id="ticketNumberStrategy" class="ua.epam.spring.hometask.service.discount_strategies.TicketNumberStrategy" >
         <property name="discount" value="50"/>
     </bean>
 

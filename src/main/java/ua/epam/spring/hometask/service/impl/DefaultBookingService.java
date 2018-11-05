@@ -10,7 +10,6 @@ import ua.epam.spring.hometask.service.UserService;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.NavigableMap;
@@ -59,8 +58,7 @@ public class DefaultBookingService implements BookingService {
         if (String.valueOf(rating).equals("HIGH")) {
             resultCost = hightRateSeatCost * resultCost;
         }
-        DecimalFormat df2 = new DecimalFormat(".##");
-        return Double.valueOf(df2.format(resultCost));
+        return resultCost;
     }
 
     @Override

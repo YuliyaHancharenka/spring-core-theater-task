@@ -10,7 +10,7 @@ import ua.epam.spring.hometask.domain.User;
 
 import java.util.Collection;
 
-@ContextConfiguration(locations = {"classpath*:spring.xml"})
+@ContextConfiguration(locations = {"classpath*:spring-test.xml"})
 public class UserDaoTest extends AbstractJUnit4SpringContextTests {
 
     private User currentUser;
