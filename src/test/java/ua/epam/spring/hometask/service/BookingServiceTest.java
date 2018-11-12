@@ -6,9 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import ua.epam.spring.hometask.dao.EventDao;
 import ua.epam.spring.hometask.dao.TicketDao;
@@ -20,12 +18,10 @@ import java.time.LocalDateTime;
 import java.util.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath*:spring-test.xml"})
-@TestExecutionListeners()
-public class BookingServiceTest {//todo
+@ContextConfiguration(locations = {"classpath:spring-test.xml"})
+public class BookingServiceTest {
 
     @Autowired
-    @Qualifier(value = "eventDao")
     public EventDao eventDao;
 
     @Autowired
@@ -88,7 +84,7 @@ public class BookingServiceTest {//todo
     @Test
     public void getTicketsPriceTest() {
         double price = bookingService.getTicketsPrice(currentEvent, dateTime, currentUser, seats);
-        Assert.assertEquals(price,479.52);
+        Assert.assertEquals(359.64, price,1);
     }
 
     @Test

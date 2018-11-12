@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 import java.time.Month;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath*:spring-test.xml"})
+@ContextConfiguration(locations = {"classpath:spring-test.xml"})
 public class DiscountServiceImplTest {
 
     @Autowired

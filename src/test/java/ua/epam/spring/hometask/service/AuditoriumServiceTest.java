@@ -9,7 +9,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import ua.epam.spring.hometask.domain.Auditorium;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath*:spring-test.xml"})
+@ContextConfiguration(locations = {"classpath:spring-test.xml"})
 public class AuditoriumServiceTest {
 
     @Autowired

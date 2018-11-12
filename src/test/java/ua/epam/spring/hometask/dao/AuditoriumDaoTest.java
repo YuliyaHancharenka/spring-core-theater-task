@@ -11,7 +11,7 @@ import ua.epam.spring.hometask.domain.Auditorium;
 import java.util.Collection;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath*:spring-test.xml"})
+@ContextConfiguration(locations = {"classpath:spring-test.xml"})
 public class AuditoriumDaoTest {
 
     private int auditoriumCount = 2;

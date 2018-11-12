@@ -15,7 +15,7 @@ public class DiscountAspect {
     @Autowired
     DiscountAspectDao discountAspectDao;
 
-    @Pointcut("execution(* ua.epam.spring.hometask.service.impl.DefaultDiscountService.getDiscount(..)))")
+    @Pointcut("execution(* ua.epam.spring.hometask.service.inMemory.DefaultDiscountService.getDiscount(..)))")
     private void discountServiceGetDiscount() {
     }
 

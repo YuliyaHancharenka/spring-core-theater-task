@@ -20,7 +20,7 @@ public class CounterAspect {
     @Autowired
     CounterAspectDao counterAspectDao;
 
-    @Pointcut("execution(* ua.epam.spring.hometask.service.impl.DefaultEventService.getByName(..))")
+    @Pointcut("execution(* ua.epam.spring.hometask.service.inMemory.DefaultEventService.getByName(..))")
     private void eventServiceGetByName() {
     }
 
@@ -31,7 +31,7 @@ public class CounterAspect {
     }
 
 
-    @Pointcut("execution(* ua.epam.spring.hometask.service.impl.DefaultBookingService.getTicketsPrice(..))")
+    @Pointcut("execution(* ua.epam.spring.hometask.service.inMemory.DefaultBookingService.getTicketsPrice(..))")
     private void bookingServiceGetTicketsPrice() {
     }
 
@@ -41,7 +41,7 @@ public class CounterAspect {
         counterAspectDao.saveEventValueCouterByPrice(event.getName());
     }
 
-    @Pointcut("execution(* ua.epam.spring.hometask.service.impl.DefaultBookingService.bookTickets(..))")
+    @Pointcut("execution(* ua.epam.spring.hometask.service.inMemory.DefaultBookingService.bookTickets(..))")
     private void bookingServiceBookTickets() {
     }
 

@@ -1,8 +1,14 @@
 package ua.epam.spring.hometask.dao;
 
+import ua.epam.spring.hometask.domain.statistics.CounterStatisticsEvent;
+
 import java.util.Map;
 
 public interface CounterAspectDao {
+
+    public CounterStatisticsEvent getStatisticsById(Long id);
+    public void updateStatistics(CounterStatisticsEvent cointerStatisticsEvent);
+    public void insertStatistics(CounterStatisticsEvent cointerStatisticsEvent);
 
     void saveEventValueCouterByName(String eventName);
 
@@ -15,5 +21,4 @@ public interface CounterAspectDao {
     void saveEventValueCouterByTicket(String eventName);
 
     Map<String, Long> eventsByTicketsStorageGetAll();
-
 }

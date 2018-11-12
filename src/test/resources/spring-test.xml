@@ -21,13 +21,13 @@
     <import resource="strategy.xml"/>
 
     <bean id="bookingService" class="ua.epam.spring.hometask.service.impl.DefaultBookingService"/>
-    <bean id="ticketDao" class="ua.epam.spring.hometask.dao.impl.TicketDaoInMemory"/>
-    <bean id="userDao" class="ua.epam.spring.hometask.dao.impl.UserDaoInMemory"/>
+    <bean id="ticketDao" class="ua.epam.spring.hometask.dao.inMemory.TicketDaoInMemory"/>
+    <bean id="userDao" class="ua.epam.spring.hometask.dao.inMemory.UserDaoInMemory"/>
     <bean id="userService" class="ua.epam.spring.hometask.service.impl.DefaultUserService"/>
     <bean id="auditoriumService" class="ua.epam.spring.hometask.service.impl.DefaultAuditoriumService"/>
     <bean id="eventService" class="ua.epam.spring.hometask.service.impl.DefaultEventService"/>
-    <bean id="counterAspectDao" class="ua.epam.spring.hometask.dao.impl.CounterAspectDaoImpl"/>
-    <bean id="discountAspectDao" class="ua.epam.spring.hometask.dao.impl.DiscountAspectDaoImpl"/>
+    <bean id="counterAspectDao" class="ua.epam.spring.hometask.dao.inMemory.CounterAspectDaoImpl"/>
+    <bean id="discountAspectDao" class="ua.epam.spring.hometask.dao.inMemory.DiscountAspectDaoImpl"/>
 
     <bean id="discountService" class="ua.epam.spring.hometask.service.impl.DefaultDiscountService">
         <property name="strategies">
@@ -67,26 +67,26 @@
         <ref bean="auditorium2"/>
     </util:set>
 
-    <bean id="auditoriumDao" class="ua.epam.spring.hometask.dao.impl.AuditoriumDaoInMemory">
+    <bean id="auditoriumDao" class="ua.epam.spring.hometask.dao.inMemory.AuditoriumDaoInMemory">
         <property name="auditoriumSet" ref="auditoriumSet"/>
     </bean>
 
     <bean id="localDateTime" class="java.time.LocalDateTime" factory-method="now"/>
 
-    <!--<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">-->
-        <!--<constructor-arg ref="dataSource"/>-->
-    <!--</bean>-->
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <constructor-arg ref="dataSource"/>
+    </bean>
 
-    <!--<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" destroy-method="close">-->
-        <!--<constructor-arg ref="dataSource"/>-->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" destroy-method="close">
+        <constructor-arg ref="dataSource"/>
 
-        <!--<property name="driverClassName" value="${jdbc.driverClassName}"/>-->
-        <!--<property name="url" value="${jdbc.url}"/>-->
-        <!--<property name="username" value="${jdbc.username}"/>-->
-        <!--<property name="password" value="${jdbc.password}"/>-->
+        <property name="driverClassName" value="${jdbc.driverClassName}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
 
-    <!--</bean>-->
-    <!---->
+    </bean>
+
 
     <util:set id="airDates" set-class="java.util.TreeSet">
         <ref bean="localDateTime"/>
@@ -109,7 +109,7 @@
         <ref bean="event1"/>
     </util:list>
 
-    <bean id="eventDao" class="ua.epam.spring.hometask.dao.impl.EventDaoInMemory">
+    <bean id="eventDao" class="ua.epam.spring.hometask.dao.inMemory.EventDaoInMemory">
         <property name="eventList" ref="eventList"/>
     </bean>
 
